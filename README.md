@@ -1,2 +1,2 @@
 # ADOPermissionsView
-Users Permission View and Analysis in Microsft Azure DevOps
+Users Permission View and Analysis for Microsft Azure DevOps
