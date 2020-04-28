@@ -18,7 +18,8 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install dependencies
-      run: dotnet restore
+      working-directory: ADOPermissions
+      run: dotnet restore ADOPermissions.sln
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
