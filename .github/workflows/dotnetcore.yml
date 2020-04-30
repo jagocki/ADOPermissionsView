@@ -23,6 +23,8 @@ jobs:
       working-directory: ADOPermissions
       run: dotnet restore ADOPermissions.sln
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      working-directory: ADOPermissions
+      run: dotnet build ADOPermissions.sln --configuration Release --no-restore
     - name: Test
+      working-directory: ADOPermissions
       run: dotnet test --no-restore --verbosity normal
