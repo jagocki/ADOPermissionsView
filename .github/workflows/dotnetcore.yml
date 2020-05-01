@@ -27,4 +27,7 @@ jobs:
       run: dotnet build ADOPermissions.sln --configuration Debug --no-restore
     - name: Test
       working-directory: ADOPermissions
+      env: 
+        ADOConnection_PAT: ${{ secrets.ADOConnection_PAT }}
+        ADOConnection_URL: ${{ secrets.ADOConnection_URL }}
       run: dotnet test --no-build --verbosity normal
