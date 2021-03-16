@@ -28,3 +28,35 @@ jobs:
     - name: Test
       working-directory: ADOPermissions
       run: dotnet test --no-build --verbosity normal
+
+      #to do 
+      #symbols - use local symbol server https://www.codeproject.com/Articles/115125/Source-Indexing-and-Symbol-Servers-A-Guide-to-Easi
+      #how the symchecck works https://docs.microsoft.com/en-us/windows/win32/dxtecharts/debugging-with-symbols#how-symchk-works
+
+
+      #implement using packages with symbols
+
+      #maybe blog?
+      #setup tools
+      #1. symstore from debugging tools for windows https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk/ or from visualstudio 2019 installer optional packages
+      #tip use sdk installer, otherwise it will consume too much space on hard drive
+      #2 use dumpbin to check where and how it download the libraries
+      # also check if the .NET assemly loading shows the same
+
+
+
+      # implement secret for tests https://brainlesscoder.com/2019/12/25/publishing-net-standard-nuget-package-with-github-actions/
+      #https://brainlesscoder.com/2019/12/25/publishing-net-standard-nuget-package-with-github-actions/
+      # recognize the folder structure -> test task does not use the output from build?
+      # todo push to repo?
+
+      
+      #deployment       https://timheuer.com/blog/building-net-framework-apps-using-github-actions/
+      #https://rajbos.github.io/blog/2019/10/26/Deploy-dotnetcore-webapp-with-GitHub-Actions
+      #use pacto trace
+      #https://devblogs.microsoft.com/visualstudio/creating-and-packaging-net-standard-library/?ocid=3006539&MC=CSHARP&MC=.NET&MC=Vstudio
+      #https://rajbos.github.io/blog/2019/10/26/Deploy-dotnetcore-webapp-with-GitHub-Actions
+
+      #https://www.blexin.com/en-US/Article/Blog/Publishing-NuGet-packages-with-GitHub-Actions-75
+
+      #implement this https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-nswag?view=aspnetcore-3.1&tabs=visual-studio

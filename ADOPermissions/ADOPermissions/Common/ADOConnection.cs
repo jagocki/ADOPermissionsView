@@ -1,8 +1,10 @@
 ﻿using Microsoft.VisualStudio.Services.Common;
 using Microsoft.VisualStudio.Services.WebApi;
 using System;
+using PactoTrace;
 using System.Collections.Generic;
 using System.Text;
+using PactoTrace.ExtensionMethods;
 
 namespace ADOPermissions.Common
 {
@@ -11,6 +13,7 @@ namespace ADOPermissions.Common
         public VssConnection Connection
         {
             get;
+            set;
         }
 
         public string PAT
@@ -25,9 +28,18 @@ namespace ADOPermissions.Common
 
         public ADOConnection(string collectionUrl, string PAT)
         {
-            this.PAT = PAT;
-            this.CollectionUrl = collectionUrl;
-            Connection = SetUpConnection(collectionUrl, PAT);
+            Login(collectionUrl, PAT);
+
+            
+        }
+        void Login(string collectionUrl, string PAT)
+        {
+           Unit.Scope(() =>
+                {
+                    //this.PAT = PAT;
+                    //this.CollectionUrl = collectionUrl;
+                    Connection = SetUpConnection(collectionUrl, PAT);
+                });            
         }
 
 

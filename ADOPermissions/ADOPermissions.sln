@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADOPermissions", "ADOPermissions\ADOPermissions.csproj", "{5788D261-134C-45B9-A257-43B013034AF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADOPermissions", "ADOPermissions\ADOPermissions.csproj", "{5788D261-134C-45B9-A257-43B013034AF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADOPermissions.Tests", "ADOPermissions.Tests\ADOPermissions.Tests.csproj", "{8DB3B124-5AE7-4DFF-9174-ACF56B1AF86E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADOPermissions.Tests", "ADOPermissions.Tests\ADOPermissions.Tests.csproj", "{8DB3B124-5AE7-4DFF-9174-ACF56B1AF86E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PactoTrace", "..\..\..\PactoTrace\src\PactoTrace\PactoTrace\PactoTrace.csproj", "{AEFB13F4-B68E-4648-8663-D73504044EB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADOPermission.API", "ADOPermission.API\ADOPermission.API.csproj", "{280D9FBA-0EF4-4F37-BC90-F2D13A9E358E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PactoTrace.Core", "..\..\..\PactoTrace\src\PactoTrace\PactoTrace.Core\PactoTrace.Core.csproj", "{E5CAEFC0-E664-4F5B-99BD-2293FB293DF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{8DB3B124-5AE7-4DFF-9174-ACF56B1AF86E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DB3B124-5AE7-4DFF-9174-ACF56B1AF86E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DB3B124-5AE7-4DFF-9174-ACF56B1AF86E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEFB13F4-B68E-4648-8663-D73504044EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEFB13F4-B68E-4648-8663-D73504044EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEFB13F4-B68E-4648-8663-D73504044EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEFB13F4-B68E-4648-8663-D73504044EB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{280D9FBA-0EF4-4F37-BC90-F2D13A9E358E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{280D9FBA-0EF4-4F37-BC90-F2D13A9E358E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{280D9FBA-0EF4-4F37-BC90-F2D13A9E358E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{280D9FBA-0EF4-4F37-BC90-F2D13A9E358E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5CAEFC0-E664-4F5B-99BD-2293FB293DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5CAEFC0-E664-4F5B-99BD-2293FB293DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5CAEFC0-E664-4F5B-99BD-2293FB293DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5CAEFC0-E664-4F5B-99BD-2293FB293DF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
