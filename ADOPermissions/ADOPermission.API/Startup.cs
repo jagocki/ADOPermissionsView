@@ -37,7 +37,6 @@ namespace ADOPermission.API
                    {
                        options.IncludeScopes = true;
                    });
-                    logger.AddSeq();
                 });
                 services.AddMetrics();
                 //services.AddTransient<PactoTraceCore>();
