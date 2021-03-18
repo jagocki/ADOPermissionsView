@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\PactoTrace\src\PactoTrace\PactoTrace\PactoTrace.csproj" />
+    <ProjectReference Include="..\..\..\PactoTrace\src\PactoTrace\PactoTrace\PactoTrace.csproj" />
   </ItemGroup>
 
 </Project>

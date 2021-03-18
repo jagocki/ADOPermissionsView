@@ -4,9 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using ADOPermission.API.Models;
 using ADOPermission.API.Services;
+using App.Metrics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PactoTrace;
+
 
 namespace ADOPermission.API.Controllers
 {
@@ -14,14 +15,17 @@ namespace ADOPermission.API.Controllers
     [ApiController]
     public class PermissionsController : ControllerBase
     {
-        IGenericEventSink eventSink;
+        PactoTrace.IGenericEventSink eventSink;
 
         public UsersService UsersService { get; }
 
-        public PermissionsController(UsersService usersService, IGenericEventSink eventSink)
+        private readonly IMetrics metrics;
+
+        public PermissionsController(UsersService usersService, PactoTrace.IGenericEventSink eventSink, IMetrics metrics)
         {
             this.UsersService = usersService;
             this.eventSink = eventSink;
+            this.metrics = metrics;
         }
 
         [HttpGet]
@@ -33,8 +37,9 @@ namespace ADOPermission.API.Controllers
             //    result = UsersService.GetUsers();
             //});
             //return result;
-            return Unit.Scope<IEnumerable<User>>( () =>
+            return PactoTrace.Unit.Scope<IEnumerable<User>>( () =>
                {
+                   metrics.Measure.Counter.Increment(MetricsRegistry.GetAllUsersPermissionsCounter);
                    return UsersService.GetAllUsers();
                });
             //https://docs.microsoft.com/pl-pl/dotnet/api/system.threadstaticattribute?view=netcore-3.1
@@ -44,8 +49,10 @@ namespace ADOPermission.API.Controllers
         [HttpGet("{id}")]
         public IEnumerable<User> GetUser(string id)
         {
-            return Unit.Scope<IEnumerable<User>>(() =>
+            return PactoTrace.Unit.Scope<IEnumerable<User>>(() =>
             {
+                metrics.Measure.Counter.Increment(MetricsRegistry.GetSingleUserPermissionsCounter);
+
                 return UsersService.GetUser(id);
             });
         }

@@ -29,6 +29,7 @@ namespace ADOPermission.API
         {
             Unit.Scope(() =>
             {
+                services.Configure<KestrelServerOptions>(options => { options.AllowSynchronousIO = true; });
                 services.AddRazorPages();
                 services.AddLogging( (logger) =>
                 {
@@ -38,6 +39,7 @@ namespace ADOPermission.API
                    });
                     logger.AddSeq();
                 });
+                services.AddMetrics();
                 //services.AddTransient<PactoTraceCore>();
                 services.AddSingleton(typeof(IGenericEventSink), typeof(PactoTraceCore));
                 services.AddTransient<UsersService>();
