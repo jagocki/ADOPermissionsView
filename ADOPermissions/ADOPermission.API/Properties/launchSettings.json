@@ -18,6 +18,7 @@
     "ADOPermission.API": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "api/permissions",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

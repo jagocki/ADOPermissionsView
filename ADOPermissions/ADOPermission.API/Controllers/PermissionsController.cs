@@ -7,7 +7,8 @@ using ADOPermission.API.Services;
 using App.Metrics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace ADOPermission.API.Controllers
 {
@@ -31,17 +32,18 @@ namespace ADOPermission.API.Controllers
         [HttpGet]
         public IEnumerable<User> AllUsers()
         {
-            //IEnumerable<User> result = null;
-            //Unit.Scope(() =>
-            //{
-            //    result = UsersService.GetUsers();
-            //});
-            //return result;
-            return PactoTrace.Unit.Scope<IEnumerable<User>>( () =>
-               {
-                   metrics.Measure.Counter.Increment(MetricsRegistry.GetAllUsersPermissionsCounter);
-                   return UsersService.GetAllUsers();
-               });
+            return PactoTrace.Unit.Scope(() =>
+            {
+                metrics.Measure.Counter.Increment(MetricsRegistry.GetAllUsersPermissionsCounter);
+                return UsersService.GetAllUsers();
+            });
+            //return PactoTrace.Unit.Scope( () =>
+            //   {
+            //       metrics.Measure.Counter.Increment(MetricsRegistry.GetAllUsersPermissionsCounter);
+            //       IEnumerable<User> users = UsersService.GetAllUsers();
+            //       Log.Information("Users retrieved");
+            //       return users;
+            //   });
             //https://docs.microsoft.com/pl-pl/dotnet/api/system.threadstaticattribute?view=netcore-3.1
             //https://docs.microsoft.com/pl-pl/dotnet/api/system.threading.threadlocal-1?view=netcore-3.1
         }
@@ -49,7 +51,7 @@ namespace ADOPermission.API.Controllers
         [HttpGet("{id}")]
         public IEnumerable<User> GetUser(string id)
         {
-            return PactoTrace.Unit.Scope<IEnumerable<User>>(() =>
+            return PactoTrace.Unit.Scope(() =>
             {
                 metrics.Measure.Counter.Increment(MetricsRegistry.GetSingleUserPermissionsCounter);
 

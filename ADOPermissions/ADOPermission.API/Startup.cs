@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PactoTrace;
 using PactoTrace.Core;
+using Serilog;
 
 namespace ADOPermission.API
 {
@@ -67,9 +68,9 @@ namespace ADOPermission.API
 
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSerilogRequestLogging();
             app.UseRouting();
-
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

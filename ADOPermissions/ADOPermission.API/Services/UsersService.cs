@@ -20,9 +20,8 @@ namespace ADOPermission.API.Services
 
         public IEnumerable<User> GetAllUsers()
         {
-            return Unit.Scope<List<User>>(() =>
+            return Unit.Scope(() =>
             {
-
                 return new List<User>() {
                     new User() { DistinguishedName = "dn:user1DN" },
                     new User() { DistinguishedName = "dn:user2DN" }
@@ -34,8 +33,8 @@ namespace ADOPermission.API.Services
         {
             return Unit.Scope<List<User>>(() =>
             {
-
                 return new List<User>() { new User() { DistinguishedName = "dn:userDN" } };
+
             });
         }
     }
