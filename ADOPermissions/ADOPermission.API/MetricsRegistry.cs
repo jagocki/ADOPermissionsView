@@ -22,5 +22,12 @@ namespace ADOPermission.API
             Context = "PermissionsApiContext",
             MeasurementUnit = Unit.Calls
         };
+
+        public static CounterOptions GetGeneralPermissionsCounter => new CounterOptions
+        {
+            Name = "UserPermissionGet",
+            Context = "PermissionsApiContext",
+            MeasurementUnit = Unit.Calls
+        };
     }
 }

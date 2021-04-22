@@ -34,7 +34,8 @@ namespace ADOPermission.API.Controllers
         {
             return PactoTrace.Unit.Scope(() =>
             {
-                metrics.Measure.Counter.Increment(MetricsRegistry.GetAllUsersPermissionsCounter);
+                MetricTags tags = new MetricTags(new[] { "TraceID", "Operation" }, new[] { System.Diagnostics.Activity.Current.TraceId.ToString(), "GetAllUser" });
+                metrics.Measure.Counter.Increment(MetricsRegistry.GetGeneralPermissionsCounter,tags);
                 return UsersService.GetAllUsers();
             });
             //return PactoTrace.Unit.Scope( () =>
@@ -53,7 +54,9 @@ namespace ADOPermission.API.Controllers
         {
             return PactoTrace.Unit.Scope(() =>
             {
-                metrics.Measure.Counter.Increment(MetricsRegistry.GetSingleUserPermissionsCounter);
+                MetricTags tags = new MetricTags(new[]{ "TraceID", "Operation" },new[] { System.Diagnostics.Activity.Current.TraceId.ToString(),"GetSingleUser" });
+                
+                metrics.Measure.Counter.Increment(MetricsRegistry.GetGeneralPermissionsCounter, tags );
 
                 return UsersService.GetUser(id);
             });
